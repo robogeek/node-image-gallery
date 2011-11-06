@@ -12,9 +12,9 @@
      type="text/css"
     media="screen" />
 -->
-<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
-<link rel="stylesheet" href="prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
-<script src="jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+<script src="js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
 
 </head>
 <body>
@@ -22,7 +22,7 @@
     metadata.forEach(function(element, index, array) {
         %>
         <div style="display: inline-block">
-            <a  rel="prettyPhoto[pp_gal]" href="<%= element.fnSmallImage %>"><img src="<%= element.fnThumbImage %>"></a>
+            <a  rel="prettyPhoto[pp_gal]" href="<%= element.fname %>"><img src="<%= element.fnThumbImage %>"></a>
         </div>
         <%
     });

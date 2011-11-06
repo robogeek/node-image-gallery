@@ -1,6 +1,25 @@
 var im   = require('imagemagick');
 var async = require('async');
 
+var imagere = /^(.*)\.([jJ][pP][gG]|[jJ][pP][eE][gG]|[pP][nN][gG])$/;
+
+exports.isImage = function(fnimage) {
+    var ext = imageExtension(fnimage);
+    // console.log('checking '+fnimage +' ext='+ext);
+    if (ext.match(/^[jJ][pP][gG]$/))     { return true; }
+    if (ext.match(/^[jJ][pP][eE][gG]$/)) { return true; }
+    if (ext.match(/^[pP][nN][gG]$/))     { return true; }
+    return false;
+}
+
+var imageFname = exports.imageFname = function(fnimage) {
+    return fnimage.replace(imagere, '$1').trimLeft().trimRight();
+}
+
+var imageExtension = exports.imageExtension = function(fnimage) {
+    return fnimage.replace(imagere, '$2').trimLeft().trimRight();
+}
+
 exports.metadata = function(imgfn, done) {
     async.series([
         function(callback) {
