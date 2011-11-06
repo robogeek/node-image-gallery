@@ -1,0 +1,41 @@
+<html>
+<head>
+<!--
+<script type="text/javascript"
+         src="../lightbox/js/prototype.js"></script>
+<script type="text/javascript"
+         src="../lightbox/js/scriptaculous.js?load=effects,builder"></script>
+<script type="text/javascript"
+         src="../lightbox/js/lightbox.js"></script>
+<link rel="stylesheet" 
+     href="../lightbox/css/lightbox.css"
+     type="text/css"
+    media="screen" />
+-->
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+<script src="jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body>
+<%
+    metadata.forEach(function(element, index, array) {
+        %>
+        <div style="display: inline-block">
+            <a  rel="prettyPhoto[pp_gal]" href="<%= element.fnSmallImage %>"><img src="<%= element.fnThumbImage %>"></a>
+        </div>
+        <%
+    });
+%>
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $("a[rel^='prettyPhoto']").prettyPhoto({
+    theme: "facebook",
+    show_title: true, /* true/false */
+    });
+  });
+</script>
+</body>
+</html>
+
